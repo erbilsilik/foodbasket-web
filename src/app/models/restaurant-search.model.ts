@@ -1,8 +1,8 @@
 import {RestaurantModel} from "./restaurant.model";
 
 export class RestaurantSearchModel {
-  min_price: number;
-  normal_price: number;
-  rise_price: number;
+  minPrice: number;
+  normalPrice: number;
+  risePrice: number;
   restaurant: RestaurantModel;
 }

@@ -11,16 +11,16 @@ import {RestaurantSearchModel} from "../../models/restaurant-search.model";
 export class SearchComponent implements OnInit {
   postcode: string;
   private sub: any;
-  searchObj: RestaurantSearchModel;
+  restaurantsSearch: RestaurantSearchModel;
 
   constructor(private route: ActivatedRoute, private searchService: SearchService) {
   }
 
   searchPropert() {
     this.searchService.getRestaurantByPostCode(this.postcode)
-      .subscribe((resp: RestaurantSearchModel) => {
-        this.searchObj = resp;
-        console.log(resp);
+      .subscribe((response: RestaurantSearchModel) => {
+        this.restaurantsSearch = response;
+        console.log(response);
       })
   }
 
