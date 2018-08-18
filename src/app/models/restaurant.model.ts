@@ -1,4 +1,4 @@
-export class RestaurantModel {
+export class Restaurant {
   id: number;
   created_at: string;
   email: string;
