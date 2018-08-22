@@ -1,0 +1,88 @@
+/* ==========================
+*  Footer
+============================*/
+
+footer {
+  background: url(../../../assets/images/pattern.png) center repeat;
+  padding: 90px 0;
+  z-index: 1;
+  position: relative;
+}
+
+.payment-options ul li {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+footer h5 {
+  color: #fff;
+  font-family: "Source Sans Pro", sans-serif;
+  margin-bottom: 15px;
+}
+
+.footer-logo-block img {
+  display: block;
+  margin-bottom: 15px;
+}
+
+footer p,
+footer,
+footer span {
+  font-weight: 300;
+  color: #9c9da5;
+}
+
+.address h5 a {
+  color: #f30;
+  font-size: 26px;
+  font-family: "Give You Glory", cursive;
+  margin-left: 20px;
+  font-weight: 600;
+}
+
+.address h5 a:hover {
+  color: #fff;
+}
+
+.popular-locations ul li {
+  display: inline-block;
+  width: 49%;
+}
+
+footer ul li {
+  margin-bottom: 6px;
+}
+
+footer ul li a {
+  color: #9c9da5;
+  transition: all .3s;
+}
+
+.how-it-works-links {
+  margin-bottom: 70px;
+}
+
+.address p {
+  margin-bottom: 35px;
+}
+
+footer ul li a:hover {
+  color: #f30;
+}
+
+footer li a {
+  line-height: 20px;
+  display: inline-block;
+}
+
+.payment-options ul {
+  margin-top: 10px;
+  float: left;
+  width: 100%;
+}
+
+@media (min-width:320px) and (max-width:768px) {
+  .footer-logo-block {
+    margin-bottom: 25px
+  }
+}

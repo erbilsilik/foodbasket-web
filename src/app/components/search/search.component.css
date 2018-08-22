@@ -1,0 +1,79 @@
+/*==============================
+*
+* Rstaurants
+*
+==============================*/
+
+.restaurant-entry {
+  border: 1px solid #eaebeb;
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+.restaurant-entry .entry-logo {
+  float: left;
+  width: 110px;
+  height: auto;
+  border: 1px solid #eaebeb;
+  border-radius: 2px;
+  margin-top: 15px;
+  margin-left: 15px;
+  overflow: hidden
+}
+
+.restaurant-entry .entry-logo img {
+  max-width: 100%;
+  display: block
+}
+
+.restaurant-entry .entry-dscr {
+  padding-left: 145px;
+  margin-top: 15px;
+}
+
+.restaurant-entry .entry-dscr h5 a {
+  color: #414551;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.restaurant-entry .entry-dscr ul li {
+  font-size: 12px;
+  margin-top: 7px;
+}
+
+.restaurant-entry .right-review {
+  padding: 15px 10px;
+  border-left: 1px solid #eaebeb;
+  min-height: 145px;
+}
+
+.restaurant-entry .right-review p {
+  color: #414551;
+  font-weight: 500;
+  margin: 0 0 10px;
+}
+
+.restaurant-entry .right-review .rating-block {
+  color: #f30;
+  background: transparent;
+  border: none;
+  padding: 5px 15px 5px;
+}
+
+@media (min-width: 320px) and (max-width: 991px) {
+  .restaurant-entry .entry-logo {
+    float: none;
+    text-align: center;
+    margin: 10px auto;
+  }
+  .restaurant-entry .entry-dscr {
+    padding: 0 15px;
+    text-align: center;
+  }
+  .restaurant-entry .right-review {
+    padding: 15px 10px;
+    border-left: transparent;
+    border-top: 1px solid #eaebeb
+  }
+}
