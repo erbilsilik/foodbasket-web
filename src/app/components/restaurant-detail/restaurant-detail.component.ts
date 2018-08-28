@@ -9,7 +9,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class RestaurantDetailComponent implements OnInit {
   private sub: any;
-  public restaurantId: string;
+  public restaurantId: any;
   public foods: any;
   public basket: Array<object> = [];
   public total: any = 0;
@@ -44,22 +44,22 @@ export class RestaurantDetailComponent implements OnInit {
     this.totalCount();
   }
 
-  checkFood(food): string {
-    return this.basket.find(item => item.id === food.id);
+  checkFood(food): any {
+    return this.basket.find((item: any) => item.id === food.id);
   }
 
   checkFoodId(foodId) {
-    return this.basket.find(item => item.id === foodId);
+    return this.basket.find((item: any) => item.id === foodId);
   }
 
   addToCount(foodId) {
-    const checkFood = this.checkFoodId(foodId);
+    const checkFood: any = this.checkFoodId(foodId);
     checkFood.count++;
   }
 
   totalCount(): void {
     this.total = 0;
-    this.basket.forEach((item) => {
+    this.basket.forEach((item: any) => {
       this.total += item.count * item.price;
     });
   }
