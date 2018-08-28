@@ -1,0 +1,176 @@
+/* Food items */
+
+.menu-widget,
+.widget {
+  border: 1px solid #eaebeb;
+  background: #fafaf8;
+  border-radius: 2px;
+  position: relative;
+}
+
+.widget-body {
+  padding: 20px;
+}
+
+.panel {
+  margin-bottom: 15px;
+  border: 1px solid #dcdee3;
+  border-radius: 3px;
+  box-shadow: none;
+}
+
+.panel-heading {
+  padding: 15px;
+  border: none !important;
+  border-radius: 0;
+}
+
+.panel-heading i {
+  padding-right: 7px;
+  font-size: 14px
+}
+
+.panel-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #25282b;
+}
+
+.panel-title a {
+  color: #25282b;
+}
+
+.panel .panel-body {
+  padding: 20px;
+}
+
+.list-check>li {
+  line-height: 24px;
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 23px;
+}
+
+.list-check>li:after {
+  font-family: FontAwesome;
+  position: absolute;
+  top: 1px;
+  left: 0;
+  content: "\f05d";
+  color: #7ab55c;
+  font-size: 18px;
+}
+
+.menu-widget .food-item {
+  padding: 15px
+}
+
+.menu-widget .food-item:first-of-type {
+  border-bottom: none
+}
+
+.menu-widget .food-item .restaurant-logo {
+  max-width: 100px;
+  height: auto;
+  display: block;
+}
+
+.menu-widget .food-item .restaurant-logo img {
+  max-width: 100%;
+  display: block
+}
+
+.menu-widget .food-item:first-of-type {
+  border-top: 1px solid #eaebeb;
+}
+
+.menu-widget .food-item:last-of-type {
+  border-bottom: transparent
+}
+
+.menu-widget .food-item.white {
+  background-color: #fff
+}
+
+.menu-widget .food-item .rest-descr {
+  padding-left: 115px;
+  padding-top: 0;
+}
+
+.menu-widget .food-item .rest-descr h6 a {
+  color: #25282b;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.menu-widget .food-item .item-cart-info {
+  padding-top: 20px
+}
+
+.menu-widget .food-item .price {
+  font-weight: 600;
+  color: #000;
+  position: relative;
+  margin-top: 6px;
+}
+
+.order-row .form-control {
+  border-radius: 0;
+}
+
+.order-row .title-row {
+  margin-bottom: 10px;
+}
+
+.order-row .title-row a i {
+  margin-top: 7px;
+}
+
+.order-row {
+  border-bottom: 1px solid #eaebeb
+}
+
+.order-row:last-of-type {
+  border-bottom: none
+}
+
+@media (max-width: 543px) {
+  .widget-cart {
+    margin: 20px auto;
+    float: right;
+    width: 100%;
+  }
+  #exampleInputAmount {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 544px) and (max-width: 767px) {
+  .widget-cart {
+    margin: 20px auto;
+    float: right;
+    width: 66.666667%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .widget-cart {
+    margin-top: 20px;
+    float: right;
+    width: 66.666667%;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {}
+
+@media (min-width: 1200px) {}
+
+a[aria-expanded=true] .fa-angle-right {
+  display: none;
+}
+
+a[aria-expanded=false] .fa-angle-down {
+  display: none;
+}
