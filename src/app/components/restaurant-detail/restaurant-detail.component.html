@@ -1,0 +1,100 @@
+<div class="container m-t-30">
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+      <div class="menu-widget m-b-30">
+        <ngb-accordion [closeOthers]="true" activeIds="static-1">
+          <ngb-panel id="static-1" title="Restaurant Foods">
+            <ng-template ngbPanelContent>
+              <div class="food-item" *ngFor="let food of foods">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-lg-8">
+                    <div class="rest-logo pull-left">
+                      <a class="restaurant-logo pull-left" href="#">
+                        <img [src]="food.img" alt="Food logo">
+                      </a>
+                    </div>
+                    <!-- end:Logo -->
+                    <div class="rest-descr">
+                      <h6>
+                        <a href="#">{{food.name}}</a>
+                      </h6>
+                      <p> {{food.detail}}</p>
+                    </div>
+                    <!-- end:Description -->
+                  </div>
+                  <!-- end:col -->
+                  <div class="col-xs-12 col-sm-12 col-lg-4 pull-right item-cart-info">
+                    <span class="price pull-left">$ {{food.price}}</span>
+                    <a href="javascript:;" (click)="addToBasket(food)" class="btn btn-small btn btn-secondary pull-right"
+                       data-toggle="modal" data-target="#order-modal">+</a>
+                  </div>
+                </div>
+                <!-- end:row -->
+              </div>
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+
+
+
+
+
+
+
+        <!-- end:Collapse -->
+      </div>
+      <!-- end:Widget menu -->
+
+      <!--/row -->
+    </div>
+    <!-- end:Bar -->
+    <div class="col-xs-12 col-md-12 col-lg-3">
+      <div class="sidebar-wrap">
+        <div class="widget widget-cart">
+          <div class="widget-heading">
+            <h3 class="widget-title text-dark">
+              Your Shopping Cart
+            </h3>
+            <div class="clearfix"></div>
+          </div>
+          <div class="order-row bg-white">
+            <div class="widget-body" *ngFor="let item of basket; let i = index">
+              <div class="title-row">{{item.name}}
+                <a href="javascript:;" (click)="removeFood(item, i)">
+                  <i class="fa fa-trash pull-right"></i>
+                </a>
+              </div>
+              <div class="form-group row no-gutter">
+                <div class="col-xs-8 col-md-8">
+                  <select class="form-control b-r-0" id="exampleSelect1" disabled>
+                    <option>Size</option>
+                    <option>Size LG</option>
+                    <option>Size XL</option>
+                  </select>
+                </div>
+                <div class="col-xs-4 col-md-4">
+                  <input class="form-control" type="number" [value]="item.count" [(ngModel)]="item.count">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end:Order row -->
+
+          <div class="widget-body">
+            <div class="price-wrap text-xs-center">
+              <p>TOTAL</p>
+              <h3 class="value">
+                <strong>$ {{total}}</strong>
+              </h3>
+              <p>Free Shipping</p>
+              <button type="button" class="btn theme-btn btn-lg">Checkout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end:Right Sidebar -->
+  </div>
+  <!-- end:row -->
+</div>
