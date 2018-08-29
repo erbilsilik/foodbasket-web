@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core";
-import { LoginComponent } from "./login/login.component";
+import { LoginComponent } from "./components/login/login.component";
 import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./components/home/home.component";
 import { SearchComponent } from "./components/search/search.component";
-import { RestaurantDetailComponent } from "./restaurant-detail/restaurant-detail.component";
+import { RestaurantDetailComponent } from "./components/restaurant-detail/restaurant-detail.component";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
