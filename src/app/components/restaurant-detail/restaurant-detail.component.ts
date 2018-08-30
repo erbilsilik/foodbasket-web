@@ -1,6 +1,8 @@
-import {SearchService} from '../../services/search.service';
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { SearchService } from '../../services/search.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../auth.service';
+import {OrderService} from '../../services/order.service';
 
 @Component({
   selector: 'app-restaurant-detail',
@@ -13,8 +15,11 @@ export class RestaurantDetailComponent implements OnInit {
   public foods: any;
   public basket: Array<object> = [];
   public total: any = 0;
+  public order = [];
 
   constructor(private route: ActivatedRoute,
+              private authService: AuthService,
+              private orderService: OrderService,
               private searchService: SearchService) {
   }
 
@@ -72,5 +77,23 @@ export class RestaurantDetailComponent implements OnInit {
         this.basket.splice(index, 1);
     }
     this.totalCount();
+  }
+
+  createOrder(): void {
+    this.order = [];
+    this.order.push(
+      {'restaurantId' : this.restaurantId},
+      {'basket': this.basket}
+    );
+  }
+
+  checkout(): void {
+    if (!this.authService.isLoggedIn) {
+        console.log('please login to make order');
+    } else if (this.authService.isLoggedIn && !this.basket.length) {
+        console.log('Please add something to your basket to make order');
+    }
+    this.createOrder();
+    this.orderService.setOrder(this.order);
   }
 }

@@ -1,4 +1,4 @@
-import { Restaurant } from "./restaurant.model";
+import { Restaurant } from './restaurant.model';
 
 export class RestaurantSearchModel {
   minPrice: number;

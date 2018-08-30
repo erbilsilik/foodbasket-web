@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import {AuthService} from '../../auth.service';
+import { AuthService } from '../../auth.service';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-login',
@@ -12,15 +13,18 @@ export class LoginComponent {
   public password: string;
   public error: string;
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private authService: AuthService,
+              private router: Router,
+              public loginModal: NgbActiveModal) {}
 
   public submit() {
-    this.auth
+    this.authService
       .login(this.email, this.password)
       .pipe(first())
       .subscribe(
-        result => this.router.navigate(['']),
+        result => this.loginModal.close(),
         err => (this.error = 'Could not authenticate')
       );
+    this.authService.isLoggedIn = true;
   }
 }

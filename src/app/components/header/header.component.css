@@ -75,3 +75,7 @@
   color: #f30;
   border-radius: 2px;
 }
+
+.backdrop {
+  background-color: #666;
+}
