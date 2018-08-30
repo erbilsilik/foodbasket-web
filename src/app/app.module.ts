@@ -33,6 +33,7 @@ export function tokenGetter() {
     LoginComponent,
     RestaurantDetailComponent
   ],
+  entryComponents: [LoginComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -54,6 +55,6 @@ export function tokenGetter() {
       multi: true
     }
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
