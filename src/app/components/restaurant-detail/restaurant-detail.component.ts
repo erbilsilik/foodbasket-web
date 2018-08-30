@@ -15,7 +15,7 @@ export class RestaurantDetailComponent implements OnInit {
   public foods: any;
   public basket: Array<object> = [];
   public total: any = 0;
-  public order = [];
+  public order: any = {};
 
   constructor(private route: ActivatedRoute,
               private authService: AuthService,
@@ -36,7 +36,7 @@ export class RestaurantDetailComponent implements OnInit {
       .subscribe(response => {
         this.foods = response;
         this.foods.map((item) => {
-          item.count = 0;
+          item.amount = 0;
         });
       });
   }
@@ -59,32 +59,30 @@ export class RestaurantDetailComponent implements OnInit {
 
   addToCount(foodId) {
     const checkFood: any = this.checkFoodId(foodId);
-    checkFood.count++;
+    checkFood.amount++;
   }
 
   totalCount(): void {
     this.total = 0;
     this.basket.forEach((item: any) => {
-      this.total += item.count * item.price;
+      this.total += item.amount * item.price;
     });
   }
 
   removeFood(food, index) {
-    if (food.count > 1) {
-      food.count--;
+    if (food.amount > 1) {
+      food.amount--;
     } else {
-        food.count = 0;
+        food.amount = 0;
         this.basket.splice(index, 1);
     }
     this.totalCount();
   }
 
   createOrder(): void {
-    this.order = [];
-    this.order.push(
-      {'restaurantId' : this.restaurantId},
-      {'basket': this.basket}
-    );
+    this.order = {};
+    this.order.restaurantId = this.restaurantId;
+    this.order.basket = this.basket;
   }
 
   checkout(): void {

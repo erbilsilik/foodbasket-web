@@ -2,8 +2,8 @@
   <div *ngIf="orderStatus === 'confirm'">
     <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
       <ngb-panel title="FOOD">
-        <ng-template ngbPanelContent>
-          <div *ngFor="let food of foodsInBasket">
+        <ng-template ngbPanelContent *ngIf="order?.basket">
+          <div *ngFor="let food of order.basket">
             {{food.name}}
           </div>
         </ng-template>
