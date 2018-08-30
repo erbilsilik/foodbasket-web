@@ -1,0 +1,31 @@
+<div class="container m-t-30 m-b-30">
+  <div *ngIf="orderStatus === 'confirm'">
+    <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+      <ngb-panel title="FOOD">
+        <ng-template ngbPanelContent>
+          <div *ngFor="let food of foodsInBasket">
+            {{food.name}}
+          </div>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion><br>
+    <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+      <ngb-panel title="ADDRESS">
+        <ng-template ngbPanelContent>
+          <div>
+            {{customer.first_name}} {{customer.last_name}}
+          </div>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+    <div class="col-md-16"> <br>
+      <button type="button" class="btn btn-warning" (click)="confirmOrder()">Order Now</button>
+    </div>
+  </div>
+
+  <div *ngIf="orderStatus === 'received'">
+    <ngb-alert [type]="'success'" [dismissible]="false">
+      Your order successfully received! Redirecting to the home page...
+    </ngb-alert>
+  </div>
+</div>

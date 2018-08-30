@@ -18,6 +18,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { LoginComponent } from './components/login/login.component';
 import { RestaurantDetailComponent } from './components/restaurant-detail/restaurant-detail.component';
+import { OrderComponent } from './components/order/order.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -31,7 +32,8 @@ export function tokenGetter() {
     FooterComponent,
     SearchComponent,
     LoginComponent,
-    RestaurantDetailComponent
+    RestaurantDetailComponent,
+    OrderComponent
   ],
   entryComponents: [LoginComponent],
   imports: [

@@ -1,8 +1,8 @@
 import { SearchService } from '../../services/search.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CustomerService } from '../../services/customer.service';
 import { AuthService } from '../../auth.service';
+import {OrderService} from '../../services/order.service';
 
 @Component({
   selector: 'app-restaurant-detail',
@@ -15,13 +15,11 @@ export class RestaurantDetailComponent implements OnInit {
   public foods: any;
   public basket: Array<object> = [];
   public total: any = 0;
-  public customer;
-  public customerId;
   public order = [];
 
   constructor(private route: ActivatedRoute,
-              private customerService: CustomerService,
               private authService: AuthService,
+              private orderService: OrderService,
               private searchService: SearchService) {
   }
 
@@ -30,7 +28,6 @@ export class RestaurantDetailComponent implements OnInit {
       this.restaurantId = +params['restaurantId'];
     });
     this.getFoods();
-    this.getCustomerInfo();
   }
 
   getFoods() {
@@ -42,15 +39,6 @@ export class RestaurantDetailComponent implements OnInit {
           item.count = 0;
         });
       });
-  }
-
-  getCustomerInfo() {
-    this.customerService.getInfo()
-      .subscribe(response => {
-        this.customer = response;
-        this.customerId = this.customer.id;
-        }
-      );
   }
 
   addToBasket(food): void {
@@ -94,7 +82,6 @@ export class RestaurantDetailComponent implements OnInit {
   createOrder(): void {
     this.order = [];
     this.order.push(
-      {'customerId' : this.customerId},
       {'restaurantId' : this.restaurantId},
       {'basket': this.basket}
     );
@@ -102,10 +89,11 @@ export class RestaurantDetailComponent implements OnInit {
 
   checkout(): void {
     if (!this.authService.isLoggedIn) {
-        console.log('please log in to make order');
+        console.log('please login to make order');
     } else if (this.authService.isLoggedIn && !this.basket.length) {
-        console.log('Please add something to your basket for make order');
+        console.log('Please add something to your basket to make order');
     }
     this.createOrder();
+    this.orderService.setOrder(this.order);
   }
 }
