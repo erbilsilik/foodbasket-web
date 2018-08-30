@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class SearchService {
-  // private readonly url = 'http://localhost:3000/api';
 
   constructor(private http: HttpClient) {}
 

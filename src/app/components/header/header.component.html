@@ -11,12 +11,15 @@
               <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item" *ngIf="!isLoggedIn">
-            <a routerLink="/login" class="nav-link" href="javascript:;">Login
+          <li class="nav-item" *ngIf="!authService.isLoggedIn">
+            <!--<a routerLink="/login" class="nav-link" href="javascript:;">Login-->
+              <!--<span class="sr-only">(current)</span>-->
+            <!--</a>-->
+            <a (click)="openLoginModal()" class="nav-link" href="javascript:;">Login
               <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item" *ngIf="isLoggedIn">
+          <li class="nav-item" *ngIf="authService.isLoggedIn">
             <a class="nav-link" href="javascript:;" (click)="logout()">Logout
               <span class=" sr-only ">(current)</span>
             </a>

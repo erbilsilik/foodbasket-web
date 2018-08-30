@@ -1,6 +1,7 @@
-import {SearchService} from '../../services/search.service';
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { SearchService } from '../../services/search.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CustomerService } from '../../services/customer.service';
 
 @Component({
   selector: 'app-restaurant-detail',
@@ -72,5 +73,9 @@ export class RestaurantDetailComponent implements OnInit {
         this.basket.splice(index, 1);
     }
     this.totalCount();
+  }
+
+  checkout() {
+    console.log(this.basket);
   }
 }

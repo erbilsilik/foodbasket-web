@@ -69,7 +69,8 @@
                 <strong>$ {{total}}</strong>
               </h3>
               <p>Free Shipping</p>
-              <button type="button" class="btn theme-btn btn-lg">Checkout</button>
+              <button type="button" [disabled]="!basket.length" class="btn theme-btn btn-lg" (click)="checkout()">Checkout
+              </button>
             </div>
           </div>
         </div>
