@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/index';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -6,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class OrderService {
   public sharedOrder;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   setOrder(order) {
     this.sharedOrder = order;
@@ -21,5 +23,9 @@ export class OrderService {
 
   clearOrder() {
     this.sharedOrder = undefined;
+  }
+
+  createOrder (order): Observable<any> {
+    return this.http.post<any>('api/orders', order);
   }
 }

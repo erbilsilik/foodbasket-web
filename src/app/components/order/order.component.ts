@@ -10,7 +10,7 @@ import {CustomerService} from '../../services/customer.service';
 })
 export class OrderComponent implements OnInit {
   public order;
-  public foodsInBasket = [];
+  public orderItems = [];
   public customer;
   public orderStatus: any = 'confirm';
 
@@ -23,7 +23,6 @@ export class OrderComponent implements OnInit {
     // TODO get shared order from getter method
     if (this.orderService.sharedOrder) {
       this.order = this.orderService.sharedOrder;
-      this.getFoodsInBasket();
     } else {
         this.router.navigateByUrl('');
     }
@@ -38,24 +37,33 @@ export class OrderComponent implements OnInit {
       );
   }
 
-  getFoodsInBasket() {
-    this.order.map(element => {
-      if (element.hasOwnProperty('basket')) {
-        this.foodsInBasket = element.basket;
-      }
+  getOrderItems() {
+    this.order.basket.forEach(item => {
+      const food: any = {};
+      food.food_id = item.id;
+      food.restaurant_id = item.restaurant_id;
+      food.amount = item.amount;
+      food.price = item.price;
+      this.orderItems.push(food);
     });
+
+    return this.orderItems;
   }
 
   confirmOrder() {
-    this.order.push(
-      {'customerId' : this.customer.id},
-      {'customerAddressId' : 2},
-    );
+    this.order.customerAddressId = 2;
+    this.order.status = 'waiting';
+    this.order.orderItems = this.getOrderItems();
 
-    this.orderStatus = 'received';
-    setTimeout(() => {
-      this.router.navigateByUrl('');
-    }, 5000);
+    // TODO this will give an error on second click
+    delete this.order.basket;
+
+    this.orderService.createOrder(this.order)
+      .subscribe(() => {
+        this.orderStatus = 'received';
+        setTimeout(() => {
+          this.router.navigateByUrl('');
+        }, 5000);
+      });
   }
-
 }
